@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Brazil Catuai",
+        "variant": "medium",
+        "size": 75,
+        "description": "yummy",
+        "starttemp": 170,
+        "maintemp": 235,
+        "intervals": [240, 180, 180, 180]
+    }
+]
