@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Brazil Yellow Catuai",
+        "variant": "medium",
+        "size": 75,
+        "description": "Perfect for Chemex style pourover",
+        "notes": "Very mild",
+        "keywords": ["nutty", "chocolate"],
+        "starttemp": 170,
+        "maintemp": 235,
+        "intervals": [240, 180, 180, 180]
+    },
+    {
+        "id": 2,
+        "name": "Brazil Santos",
+        "variant": "dark",
+        "size": 75,
+        "description": "Espresso style",
+        "notes": "Super strong",
+        "keywords": ["berries", "caramel"],
+        "starttemp": 170,
+        "maintemp": 235,
+        "intervals": [240, 180, 180, 180]
+    }
+]
