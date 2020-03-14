@@ -1,20 +1,29 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Roast } from 'src/shared/roast';
+import { RoastService } from '../roast.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrls: ['./toolbar.component.scss'],
 })
-export class ToolbarComponent implements OnInit {
-  @Output() roast = new EventEmitter<string>();
+export class ToolbarComponent implements OnInit, OnDestroy {
   title = 'roast';
   roasts: Roast[];
+  selectedRoast;
+  subscription: Subscription;
 
   constructor(
     private apiService: ApiService,
-  ) { }
+    private roastService: RoastService
+  ) {     
+    roastService.selectedRoast$.subscribe(
+        roast => {
+        this.selectedRoast = roast;
+    });
+  }
 
   ngOnInit(): void {
     this.getRoasts();
@@ -28,7 +37,11 @@ export class ToolbarComponent implements OnInit {
   }
   
   selectRoast(roast: string) {
+    this.roastService.selectRoast(roast);
     console.log(roast);
-    this.roast.emit(roast);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
