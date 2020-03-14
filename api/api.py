@@ -22,5 +22,12 @@ def roasts():
         data = json.load(f)
     return jsonify(data)
 
+@app.route('/roast/<rid>')
+def roast(rid):
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    selected = next(item for item in data if item["id"] == int(rid))
+    return jsonify(selected)
+
 if __name__ == '__main__':
     app.run(debug=True)

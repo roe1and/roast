@@ -4,7 +4,7 @@
   <mat-form-field>
       <mat-label>Roast</mat-label>
       <mat-select>
-        <mat-option *ngFor="let roast of roasts" [value]="roast.name" (click)=selectRoast(roast.name)>
+        <mat-option *ngFor="let roast of roasts" [value]="roast.name" (click)=selectRoast(roast.id)>
           {{roast.name}}
         </mat-option>
       </mat-select>

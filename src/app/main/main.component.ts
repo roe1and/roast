@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RoastService } from '../roast.service';
 import { Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -17,18 +18,21 @@ export class MainComponent implements OnInit, OnDestroy {
     private roastService: RoastService,
     private apiService: ApiService
   ) {
-    roastService.selectedRoast$.subscribe(
-      data => {
-        this.currentRoast = data;
+      roastService.selectedRoast$
+      .pipe(
+        tap(data => {
+          this.currentRoast = data;
+        })
+      ).subscribe(
+        data => {
+        this.apiService.getRoast(this.currentRoast).subscribe(
+          roastData => this.displayRoast = roastData
+        );
       });
-    this.apiService.getRoasts()
-    .subscribe(
-      data => this.displayRoast = data
-    )
-   }
 
-  ngOnInit(): void {
-  }
+    }
+
+  ngOnInit() { }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

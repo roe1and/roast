@@ -1,2 +1,8 @@
 {{currentRoast}}
-{{displayRoast.name}}
+<div *ngIf="displayRoast; else loading">
+    {{displayRoast.name}}
+</div>
+
+<ng-template #loading>
+    Loading stuff...
+</ng-template>

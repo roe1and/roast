@@ -38,7 +38,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   
   selectRoast(roast: string) {
     this.roastService.selectRoast(roast);
-    console.log(roast);
   }
 
   ngOnDestroy() {
