@@ -1,1 +1,12 @@
-<mat-toolbar>Roast</mat-toolbar>
+<mat-toolbar>
+  Roast
+  <span class="spacer"></span>
+  <mat-form-field>
+      <mat-label>Roast</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let roast of roasts" [value]="roast.name" (click)=selectRoast(roast.name)>
+          {{roast.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</mat-toolbar>
