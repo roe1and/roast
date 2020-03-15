@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class ToolbarComponent implements OnInit, OnDestroy {
   title = 'roast';
   roasts: Roast[];
-  selectedRoast;
+  selectedRoast: string;
   subscription: Subscription;
 
   constructor(

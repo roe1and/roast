@@ -1,6 +1,18 @@
 {{currentRoast}}
 <div *ngIf="displayRoast; else loading">
-    {{displayRoast.name}}
+    
+    <mat-card class="roast-card">
+        <mat-card-header>
+          <mat-card-title>{{displayRoast.name}}</mat-card-title>
+          <mat-card-subtitle>{{displayRoast.variant}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Description: {{displayRoast.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Start</button>
+        </mat-card-actions>
+      </mat-card>
 </div>
 
 <ng-template #loading>
